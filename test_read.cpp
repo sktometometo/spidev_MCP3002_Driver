@@ -4,6 +4,7 @@
 #include <cstdlib>
 
 #include <getopt.h>
+#include <unistd.h>
 
 int channel = 0;
 std::string device_name( "/dev/spidev0.0" );
@@ -61,6 +62,7 @@ int main( int argc, char **argv )
 
     int value;
     while (true) {
+      usleep(500000);
       value = hoge.read( channel );
       if ( value < 0 ) {
           std::cerr << "read error :" << value << std::endl;

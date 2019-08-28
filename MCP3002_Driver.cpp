@@ -103,5 +103,5 @@ int MCP3002_Driver::read( uint8_t adc_channel )
         return -1;
     }
 
-    return ( ( rx_data[0] << 8 ) | ( rx_data[1] >> 1) ) & 0x3FF;
+    return ( (( rx_data[0] << 8 ) | ( rx_data[1] ) ) >> 1) & 0x3FF;
 }
